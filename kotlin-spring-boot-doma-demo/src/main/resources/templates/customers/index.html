@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<div class="container">
+    <div class="index-wrapper">
+        <h1 class="index-title">ichiran</h1>
+        <ul th:unless="${customers.isEmpty()}">
+        <li th:each="customer:${customers}">
+            <a th:text="${customer.name}" th:href="@{/customers/__${customer.id}__}" class="customer-name"></a>
+            <a th:href="@{/customers/__${customer.id}__/edit}" class="customer-edit">編集</a>
+            <form th:object="${customer}" th:action="@{/customers/__${customer.id}__}" th:method="delete">
+                <input type="submit" value="削除" class="customer-delete"/>
+            </form>
+        </li>
+        </ul>
+        <a th:href="@{/customers/new}" th:class="new-btn">作成</a>
+    </div>
+</div>
+</body>
+</html>

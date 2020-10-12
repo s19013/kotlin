@@ -1,0 +1,8 @@
+#!/src/
+*.txt
+*.ods
+*.odt
+movie/
+etc/todo
+
+

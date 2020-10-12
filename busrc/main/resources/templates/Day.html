@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>movie</title>
+    <link rel="stylesheet" href="/static/css/day.css">
+</head>
+<body>
+<!--<p th:text = "${DayList}"></p>-->
+<table border="1">
+    <tr>
+        <th></th>
+        <th>日付</th>
+        <th>時間</th>
+        <th>空席数</th>
+    </tr>
+    <tr th:each = "dl:${DayList}">
+        <td><a th:href="@{{name}/{day}/{time}
+        (name=${dl.name},day=${dl.day},time=${dl.time})}"><button>選択</button></a></td>
+        <td th:text="${dl.day}"/>
+        <td th:text="${dl.time}"/>
+        <td th:text="${dl.Vseat}"/>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>movie</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+<h1>movieList</h1>
+<p th:if="${movieList.isEmpty()}">nanimonnai</p>
+<!--<p th:text="${movieList}"></p>-->
+<ul th:unless="${movieList.isEmpty()}">
+    <li th:each = "ml:${movieList}">
+        <a th:href="@{{name}(name=${ml.name})}">
+        <span th:text="${ml.name}"></span>
+        </a>
+    </li>
+</ul>
+</body>
+</html>
